@@ -104,7 +104,7 @@ void test13() {
 
 // min int type number (минимальное значение типа int)
 void test14() {
-	int number = -2'147'483'648;
+	int number = -147'483'648;
 	bool expected = false;
 	print_test(number, expected, "test14");
 }

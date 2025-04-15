@@ -11,5 +11,10 @@
 #include "logic.h"
 
 int count_even_digits(long long number) {
-	return -1;
+	if (number<10 && number >-10) {
+		return number % 2 == 0 ? 1 : 0;
+	}
+	int last_number = number % 10;
+	last_number = last_number % 2 == 0 ? 1 : 0;
+	return last_number + count_even_digits(number / 10);
 }
