@@ -11,22 +11,20 @@
 
 #include "logic.h"
 
-int sum_absolute_values_of_negative_elements(int* array, int size) {
+	int sum_absolute_values_of_negative_elements(int* array, int size) {
 
-	if (size < 0) {
-		return 0; 
+		if (size <= 0 || array == nullptr)
+		{
+			return 0;
+		}
+
+		if (size == 1)
+		{
+			return array[0] < 0 ? abs(array[0]) : 0;
+		}
+
+		int sum = sum_absolute_values_of_negative_elements(array, size - 1);
+		sum += array[size - 1] < 0 ? abs(array[size - 1]) : 0;
+
+		return sum;
 	}
-
-
-	int current_value = array[size];
-
-
-	if (current_value < 0) {
-		return abs(current_value) + sum_absolute_values_of_negative_elements(array, size - 1);
-	}
-	else {
-		
-		return sum_absolute_values_of_negative_elements(array, size - 1);
-	}
-}
-
